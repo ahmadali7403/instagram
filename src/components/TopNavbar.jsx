@@ -8,19 +8,19 @@ const TopNavbar = () => {
     <header className="sticky top-0 z-50 flex h-[45px] items-center justify-between bg-white px-2">
       {/* Plus */}
       <button className="cursor-pointer">
-        <RxPlus className="text-[22px] text-black" />
+        <RxPlus className="text-[26px] text-black" />
       </button>
 
       {/* Logo */}
       <img
         src={logo}
         alt="Instagram"
-        className="h-[24px] w-auto cursor-pointer"
+        className="h-[28px] w-auto cursor-pointer"
       />
 
       {/* Heart */}
       <button className="cursor-pointer">
-        <FaRegHeart className="text-[18px] text-black" />
+        <FaRegHeart className="text-[24px] text-black" />
       </button>
     </header>
   );
