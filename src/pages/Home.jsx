@@ -1,8 +1,10 @@
+import Stories from "../components/Stories";
+
 const Home = () => {
   return (
-    <div className="p-10">
-      <h1>Home</h1>
-    </div>
+    <>
+      <Stories />
+    </>
   );
 };
 

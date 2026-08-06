@@ -6,29 +6,27 @@ import { MdSlowMotionVideo } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 
 const BottomNavbar = () => {
-  const iconSize = "text-[28px]";
-
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 h-14 border-t border-[#dbdbdb] bg-white">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 h-11 border-t border-gray-200 bg-white">
       <div className="flex h-full items-center justify-around">
         <NavLink to="/">
-          <GoHomeFill className={iconSize} />
+          <GoHomeFill className="text-[24px]" />
         </NavLink>
 
         <NavLink to="/search">
-          <MdSlowMotionVideo className={iconSize} />
+          <MdSlowMotionVideo className="text-[24px]" />
         </NavLink>
 
         <NavLink to="/create">
-          <LuSend className={iconSize} />
+          <LuSend className="text-[24px]" />
         </NavLink>
 
         <NavLink to="/reels">
-          <VscSearchCompact className={iconSize} />
+          <VscSearchCompact className="text-[24px]" />
         </NavLink>
 
         <NavLink to="/profile">
-          <CgProfile className={iconSize} />
+          <CgProfile className="text-[24px]" />
         </NavLink>
       </div>
     </nav>
