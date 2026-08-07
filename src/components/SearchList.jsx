@@ -1,14 +1,22 @@
 import { IoClose } from "react-icons/io5";
 
-const SearchList = ({ users, showRemoveButton, removeUser }) => {
+const SearchList = ({
+  users,
+  showRemoveButton,
+  removeUser,
+  seeAllRecentUsers,
+}) => {
   return (
     <section className="px-4 py-4">
-      {/* Heading sirf Recent Searches ke liye */}
+      {/* Heading */}
       {showRemoveButton && (
         <div className="flex items-center justify-between mb-5">
           <h2 className="text-[16px] font-semibold">Recent</h2>
 
-          <button className="text-[14px] font-medium text-[#0095F6]">
+          <button
+            className="text-[14px] font-medium text-[#0095F6] cursor-pointer"
+            onClick={seeAllRecentUsers}
+          >
             See all
           </button>
         </div>
@@ -37,7 +45,7 @@ const SearchList = ({ users, showRemoveButton, removeUser }) => {
                 </div>
               </div>
 
-              {/* X button sirf Recent Searches me */}
+              {/* X Button */}
               {showRemoveButton && (
                 <button onClick={() => removeUser(user.id)}>
                   <IoClose className="text-[22px] text-[#737373] cursor-pointer" />

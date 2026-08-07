@@ -104,6 +104,8 @@ export const posts = [
     shares: "217",
     caption: "Beautiful sunset 🌅",
     time: "15 hours ago",
+    video: "../../public/reel1.mp4",
+    isVideo: false,
   },
   {
     id: 2,
@@ -117,6 +119,8 @@ export const posts = [
     shares: "95",
     caption: "Weekend vibes 😎",
     time: "8 hours ago",
+    video: "../../public/reel10.mp4",
+    isVideo: false,
   },
   {
     id: 3,
@@ -130,6 +134,8 @@ export const posts = [
     shares: "41",
     caption: "Morning coffee ☕",
     time: "2 hours ago",
+    video: "../../public/reel1.mp4",
+    isVideo: true,
   },
   {
     id: 4,
@@ -143,6 +149,8 @@ export const posts = [
     shares: "411",
     caption: "Travel memories ✈️",
     time: "5 hours ago",
+    video: "../../public/reel12.mp4",
+    isVideo: false,
   },
   {
     id: 5,
@@ -156,6 +164,8 @@ export const posts = [
     shares: "34",
     caption: "Gym session 💪",
     time: "1 hour ago",
+    video: "../../public/reel13.mp4",
+    isVideo: false,
   },
   {
     id: 6,
@@ -169,6 +179,8 @@ export const posts = [
     shares: "820",
     caption: "Nature never disappoints 🌿",
     time: "9 hours ago",
+    video: "../../public/reel2.mp4",
+    isVideo: true,
   },
   {
     id: 7,
@@ -182,6 +194,8 @@ export const posts = [
     shares: "90",
     caption: "Road trip 🚗",
     time: "12 hours ago",
+    video: "../../public/reel3.mp4",
+    isVideo: true,
   },
   {
     id: 8,
@@ -195,6 +209,8 @@ export const posts = [
     shares: "28",
     caption: "Good food 🍕",
     time: "20 minutes ago",
+    video: "../../public/reel4.mp4",
+    isVideo: false,
   },
   {
     id: 9,
@@ -208,6 +224,8 @@ export const posts = [
     shares: "1.1K",
     caption: "City lights 🌃",
     time: "18 hours ago",
+    video: "../../public/reel5.mp4",
+    isVideo: false,
   },
   {
     id: 10,
@@ -221,6 +239,8 @@ export const posts = [
     shares: "17",
     caption: "Coding time 💻",
     time: "30 minutes ago",
+    video: "../../public//reel6.mp4",
+    isVideo: false,
   },
   {
     id: 11,
@@ -234,6 +254,8 @@ export const posts = [
     shares: "133",
     caption: "Weekend chill 😌",
     time: "6 hours ago",
+    video: "../../public/reel7.mp4",
+    isVideo: true,
   },
   {
     id: 12,
@@ -247,6 +269,8 @@ export const posts = [
     shares: "1.8K",
     caption: "Ocean vibes 🌊",
     time: "1 day ago",
+    video: "../../public/reel8.mp4",
+    isVideo: false,
   },
   {
     id: 13,
@@ -260,6 +284,8 @@ export const posts = [
     shares: "77",
     caption: "Work mode 📚",
     time: "4 hours ago",
+    video: "../../public/reel9.mp4",
+    isVideo: false,
   },
   {
     id: 14,
@@ -273,6 +299,8 @@ export const posts = [
     shares: "19",
     caption: "New day ☀️",
     time: "55 minutes ago",
+    video: "../../public/reel1.mp4",
+    isVideo: true,
   },
   {
     id: 15,
@@ -286,6 +314,8 @@ export const posts = [
     shares: "2.4K",
     caption: "Adventure awaits 🏔️",
     time: "2 days ago",
+    video: "../../public/reel10.mp4",
+    isVideo: false,
   },
   {
     id: 16,
@@ -299,6 +329,8 @@ export const posts = [
     shares: "48",
     caption: "Coffee first ☕",
     time: "7 hours ago",
+    video: "../../public/reel2.mp4",
+    isVideo: false,
   },
   {
     id: 17,
@@ -312,6 +344,8 @@ export const posts = [
     shares: "55",
     caption: "Photography 📸",
     time: "11 hours ago",
+    video: "../../public/reel3.mp4",
+    isVideo: true,
   },
   {
     id: 18,
@@ -325,5 +359,7 @@ export const posts = [
     shares: "260",
     caption: "Dream big ✨",
     time: "3 hours ago",
+    video: "../../public/reel8.mp4",
+    isVideo: false,
   },
 ];

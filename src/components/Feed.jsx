@@ -1,5 +1,4 @@
 import PostCard from "./PostCard";
-
 import { posts } from "../data/data";
 
 const Feed = () => {
@@ -12,6 +11,8 @@ const Feed = () => {
           verified={post.verified}
           profile={post.profile}
           image={post.image}
+          video={post.video}
+          isVideo={post.isVideo}
           likes={post.likes}
           comments={post.comments}
           reposts={post.reposts}

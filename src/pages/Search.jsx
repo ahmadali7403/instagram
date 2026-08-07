@@ -9,7 +9,7 @@ const Search = () => {
   const [search, setSearch] = useState("");
   const [isFocused, setIsFocused] = useState(false);
 
-  const [recentUsers, setRecentUsers] = useState(users.slice(1, 3));
+  const [recentUsers, setRecentUsers] = useState(users.slice(1, 4));
 
   const filteredUsers = users.filter((user) =>
     user.username.toLowerCase().includes(search.toLowerCase()),
@@ -17,6 +17,10 @@ const Search = () => {
 
   const removeUser = (id) => {
     setRecentUsers((prev) => prev.filter((user) => user.id !== id));
+  };
+
+  const seeAllRecentUsers = () => {
+    setRecentUsers(users);
   };
 
   return (
@@ -27,15 +31,14 @@ const Search = () => {
         setIsFocused={setIsFocused}
       />
 
-      {isFocused || search.trim() !== "" ? (
-        <SearchList
-          users={search.trim() === "" ? recentUsers : filteredUsers}
-          showRemoveButton={search.trim() === ""}
-          removeUser={removeUser}
-        />
-      ) : (
-        <ExploreGrid />
-      )}
+      <SearchList
+        users={search.trim() === "" ? recentUsers : filteredUsers}
+        showRemoveButton={search.trim() === ""}
+        removeUser={removeUser}
+        seeAllRecentUsers={seeAllRecentUsers}
+      />
+
+      {!isFocused && search.trim() === "" && <ExploreGrid />}
     </>
   );
 };
