@@ -1,34 +1,43 @@
 import { FaRegHeart, FaRegComment, FaRegBookmark } from "react-icons/fa";
-
 import { FiSend } from "react-icons/fi";
 import { BsThreeDots } from "react-icons/bs";
 
 const ReelActions = ({ profile, likes, comments, shares }) => {
   return (
-    <div className="absolute bottom-12 right-3 flex flex-col items-center gap-6 text-white z-20">
+    <div className="flex flex-col items-center gap-5 text-white pb-3">
+      {/* Like */}
       <div className="flex flex-col items-center cursor-pointer">
-        <FaRegHeart size={28} />
-        <span className="text-xs">{likes}</span>
+        <FaRegHeart size={30} />
+        <span className="mt-1 text-xs font-medium">{likes}</span>
       </div>
 
+      {/* Comment */}
       <div className="flex flex-col items-center cursor-pointer">
-        <FaRegComment size={28} />
-        <span className="text-xs">{comments}</span>
+        <FaRegComment size={30} />
+        <span className="mt-1 text-xs font-medium">{comments}</span>
       </div>
 
+      {/* Share */}
       <div className="flex flex-col items-center cursor-pointer">
-        <FiSend size={28} />
-        <span className="text-xs">{shares}</span>
+        <FiSend size={30} />
+        <span className="mt-1 text-xs font-medium">{shares}</span>
       </div>
 
-      <FaRegBookmark size={28} className="cursor-pointer" />
+      {/* Save */}
+      <button className="cursor-pointer">
+        <FaRegBookmark size={28} />
+      </button>
 
-      <BsThreeDots size={28} className="cursor-pointer" />
+      {/* More */}
+      <button className="cursor-pointer">
+        <BsThreeDots size={28} />
+      </button>
 
+      {/* Profile */}
       <img
         src={profile}
-        alt=""
-        className="w-8 h-8 rounded-md border object-cover"
+        alt="Profile"
+        className="w-9 h-9 rounded-lg border border-white object-cover"
       />
     </div>
   );

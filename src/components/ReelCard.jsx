@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import ReelHeader from "./ReelHeader";
 import ReelInfo from "./ReelInfo";
 import ReelActions from "./ReelActions";
 
@@ -30,7 +29,6 @@ const ReelCard = ({ post }) => {
   }, []);
 
   const handleVideoClick = () => {
-  
     const video = videoRef.current;
 
     if (!video) return;
@@ -48,7 +46,6 @@ const ReelCard = ({ post }) => {
         ref={videoRef}
         src={post.video}
         className="absolute inset-0 w-full h-full object-cover"
-        autoPlay
         loop
         playsInline
         preload="metadata"
@@ -57,22 +54,24 @@ const ReelCard = ({ post }) => {
 
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
 
-      <ReelHeader />
+      <div className="absolute bottom-20 left-0 w-full px-4 z-20">
+        <ReelInfo
+          username={post.username}
+          profile={post.profile}
+          verified={post.verified}
+          caption={post.caption}
+          audio={post.audio}
+        />
+      </div>
 
-      <ReelInfo
-        username={post.username}
-        profile={post.profile}
-        verified={post.verified}
-        caption={post.caption}
-        audio={post.audio}
-      />
-
-      <ReelActions
-        profile={post.profile}
-        likes={post.likes}
-        comments={post.comments}
-        shares={post.shares}
-      />
+      <div className="absolute right-3 bottom-20 z-30">
+        <ReelActions
+          profile={post.profile}
+          likes={post.likes}
+          comments={post.comments}
+          shares={post.shares}
+        />
+      </div>
     </section>
   );
 };
