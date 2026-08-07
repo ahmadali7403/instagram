@@ -9,7 +9,7 @@ const StoryItem = ({ image, username }) => {
             <img
               src={image}
               alt={username}
-              className="w-17 h-17 rounded-full object-cover"
+              className="w-18 h-18 rounded-full object-cover"
             />
           </div>
         </div>

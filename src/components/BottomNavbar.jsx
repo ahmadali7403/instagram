@@ -13,15 +13,15 @@ const BottomNavbar = () => {
           <GoHomeFill className="text-[26px]" />
         </NavLink>
 
-        <NavLink to="/search">
+        <NavLink to="/reels">
           <MdSlowMotionVideo className="text-[26px]" />
         </NavLink>
 
-        <NavLink to="/create">
+        <NavLink to="/messages">
           <LuSend className="text-[26px]" />
         </NavLink>
 
-        <NavLink to="/reels">
+        <NavLink to="/search">
           <VscSearchCompact className="text-[26px]" />
         </NavLink>
 
