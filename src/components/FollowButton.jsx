@@ -6,7 +6,7 @@ const FollowButton = () => {
   return (
     <button
       onClick={() => setIsFollowing(!isFollowing)}
-      className={`text-[14px] font-semibold cursor-pointer transition bg-gray-300 text-black py-1 px-2 rounded-lg hover:scale-105`}
+      className={`text-[14px] font-semibold cursor-pointer transition bg-gray-200 text-black py-1.5 px-3.5 rounded-lg hover:scale-105`}
     >
       {isFollowing ? "Following" : "Follow"}
     </button>

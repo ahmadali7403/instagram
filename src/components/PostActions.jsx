@@ -5,7 +5,7 @@ import { VscBookmark } from "react-icons/vsc";
 
 const PostActions = ({ likes, comments, reposts, shares }) => {
   return (
-    <div className="flex items-center justify-between px-3 py-1 pb-0.5">
+    <div className="flex items-center justify-between px-3 py-2">
       {/* Left */}
       <div className="flex items-center gap-5">
         <button className="flex items-center gap-1.5 cursor-pointer">

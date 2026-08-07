@@ -18,6 +18,7 @@ const Feed = () => {
             reposts={post.reposts}
             shares={post.shares}
             caption={post.caption}
+            time={post.time}
           />
         </>
       ))}

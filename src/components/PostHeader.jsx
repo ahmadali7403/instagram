@@ -31,7 +31,7 @@ const PostHeader = ({ username, verified, profile }) => {
         <FollowButton />
 
         <button className="cursor-pointer">
-          <HiMenuAlt4 className="text-[20px] text-[#262626] cursor-pointer" />
+          <HiMenuAlt4 className="text-[24px] text-[#707070] cursor-pointer" />
         </button>
       </div>
     </header>

@@ -2,6 +2,7 @@ import PostHeader from "./PostHeader";
 import PostMedia from "./PostMedia";
 import PostActions from "./PostActions";
 import PostCaption from "./PostCaption";
+// import PostTime from "./PostTime";
 const PostCard = ({
   username,
   verified,
@@ -12,9 +13,10 @@ const PostCard = ({
   reposts,
   shares,
   caption,
+  // time,
 }) => {
   return (
-    <div className="bg-white mb-6">
+    <div className="bg-white mb-4">
       <PostHeader username={username} verified={verified} profile={profile} />
       <PostMedia image={image} />
       <PostActions
@@ -24,6 +26,7 @@ const PostCard = ({
         shares={shares}
       />
       <PostCaption username={username} caption={caption} />
+      {/* <PostTime time={time} /> */}
     </div>
   );
 };
