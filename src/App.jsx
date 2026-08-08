@@ -4,7 +4,6 @@ import MainLayout from "./components/MainLayout";
 
 import Home from "./pages/Home";
 import Search from "./pages/Search";
-import Explore from "./pages/Explore";
 import Reels from "./pages/Reels";
 import Messages from "./pages/Messages";
 import Notifications from "./pages/Notifications";
@@ -18,7 +17,6 @@ function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/explore" element={<Explore />} />
           <Route path="/reels" element={<Reels />} />
           <Route path="/messages" element={<Messages />} />
           <Route path="/notifications" element={<Notifications />} />
