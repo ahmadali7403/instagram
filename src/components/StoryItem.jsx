@@ -1,17 +1,15 @@
 import { FaPlus } from "react-icons/fa6";
 
-const StoryItem = ({ image, username }) => {
+const StoryItem = ({ image, username, onClick }) => {
   return (
-    <div className="flex flex-col items-center flex-shrink-0 cursor-pointer">
+    <div onClick={onClick} className="shrink-0 cursor-pointer">
       <div className="relative">
-        <div className="bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 p-[2px] rounded-full">
-          <div className="bg-white p-[3px] rounded-full">
-            <img
-              src={image}
-              alt={username}
-              className="w-18 h-18 rounded-full object-cover"
-            />
-          </div>
+        <div className="h-[66px] w-[66px] rounded-full bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 p-[3px]">
+          <img
+            src={image}
+            alt={username}
+            className="h-full w-full rounded-full border-2 border-white object-cover"
+          />
         </div>
 
         {username === "Your story" && (
