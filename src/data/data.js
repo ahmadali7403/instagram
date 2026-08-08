@@ -6,7 +6,7 @@ export const users = [
   },
   {
     id: 2,
-    username: "ahmad",
+    username: "ahmad ali",
     image: "https://i.pravatar.cc/150?img=2",
   },
   {

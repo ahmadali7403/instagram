@@ -1,19 +1,33 @@
-import { FiGrid } from "react-icons/fi";
+import { FiGrid, FiUser } from "react-icons/fi";
 import { RiVideoLine } from "react-icons/ri";
-import { FiUser } from "react-icons/fi";
 
-const ProfileTabs = () => {
+const ProfileTabs = ({ activeTab, setActiveTab }) => {
   return (
-    <div className="flex border-t border-gray-200">
-      <button className="flex-1 flex justify-center py-3 border-b-2 border-black">
+    <div className="sticky top-[45px] z-50 flex border-t border-gray-200 bg-white">
+      <button
+        onClick={() => setActiveTab("posts")}
+        className={`flex-1 flex justify-center py-3 cursor-pointer ${
+          activeTab === "posts" ? "border-b-2 border-black" : "text-[#737373]"
+        }`}
+      >
         <FiGrid size={22} />
       </button>
 
-      <button className="flex-1 flex justify-center py-3 text-[#737373]">
+      <button
+        onClick={() => setActiveTab("reels")}
+        className={`flex-1 flex justify-center py-3 cursor-pointer ${
+          activeTab === "reels" ? "border-b-2 border-black" : "text-[#737373]"
+        }`}
+      >
         <RiVideoLine size={23} />
       </button>
 
-      <button className="flex-1 flex justify-center py-3 text-[#737373]">
+      <button
+        onClick={() => setActiveTab("tagged")}
+        className={`flex-1 flex justify-center py-3 cursor-pointer ${
+          activeTab === "tagged" ? "border-b-2 border-black" : "text-[#737373]"
+        }`}
+      >
         <FiUser size={21} />
       </button>
     </div>
