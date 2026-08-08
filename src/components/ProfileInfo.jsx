@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { users } from "../data/data";
 import { IoClose } from "react-icons/io5";
-import Profile from "../pages/Profile";
 import ProfileHeader from "./ProfileHeader";
 
 const ProfileInfo = () => {

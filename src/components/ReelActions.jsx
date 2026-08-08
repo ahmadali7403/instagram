@@ -1,31 +1,67 @@
-import { FaRegHeart, FaRegComment, FaRegBookmark } from "react-icons/fa";
+
+
+import {
+  FaRegHeart,
+  FaHeart,
+  FaRegComment,
+  FaRegBookmark,
+  FaBookmark,
+} from "react-icons/fa";
+
 import { FiSend } from "react-icons/fi";
 import { BsThreeDots } from "react-icons/bs";
 
-const ReelActions = ({ profile, likes, comments, shares }) => {
+const ReelActions = ({
+  profile,
+  likes,
+  comments,
+  shares,
+  isLiked,
+  isSaved,
+  onLike,
+  onComment,
+  onShare,
+  onSave,
+}) => {
   return (
-    <div className="flex flex-col items-center gap-5 text-white pb-3">
+    <div className="flex flex-col items-center gap-5 text-white pb-4">
       {/* Like */}
-      <div className="flex flex-col items-center cursor-pointer">
-        <FaRegHeart size={30} />
+      <button
+        onClick={onLike}
+        className="flex flex-col items-center cursor-pointer"
+      >
+        {isLiked ? (
+          <FaHeart size={30} className="text-red-500" />
+        ) : (
+          <FaRegHeart size={30} className="text-white" />
+        )}
+
         <span className="mt-1 text-xs font-medium">{likes}</span>
-      </div>
+      </button>
 
       {/* Comment */}
-      <div className="flex flex-col items-center cursor-pointer">
+      <button
+        onClick={onComment}
+        className="flex flex-col items-center cursor-pointer"
+      >
         <FaRegComment size={30} />
+
         <span className="mt-1 text-xs font-medium">{comments}</span>
-      </div>
+      </button>
 
       {/* Share */}
-      <div className="flex flex-col items-center cursor-pointer">
+      <button
+        onClick={onShare}
+        className="flex flex-col items-center cursor-pointer"
+      >
         <FiSend size={30} />
+
         <span className="mt-1 text-xs font-medium">{shares}</span>
-      </div>
+      </button>
 
       {/* Save */}
-      <button className="cursor-pointer">
-        <FaRegBookmark size={28} />
+      <button onClick={onSave} className="cursor-pointer">
+        {isSaved ? <FaBookmark size={28} /> : <FaRegBookmark size={28} />}
       </button>
 
       {/* More */}

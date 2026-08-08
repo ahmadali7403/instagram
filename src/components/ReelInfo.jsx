@@ -5,7 +5,7 @@ const ReelInfo = ({ username, profile, verified, caption, audio }) => {
   const [isFollowing, setIsFollowing] = useState(false);
 
   return (
-    <div className="text-white w-full">
+    <div className="text-white w-full ">
       {/* Username + Follow */}
       <div className="flex items-center gap-3">
         <img
@@ -31,7 +31,7 @@ const ReelInfo = ({ username, profile, verified, caption, audio }) => {
         </button>
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-4 mt-1">
         {/* Caption */}
         <p className="text-[14px] leading-5 mb-2">{caption}</p>
 
