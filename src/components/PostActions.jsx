@@ -1,37 +1,89 @@
-import { FaRegHeart, FaRegComment } from "react-icons/fa6";
+import { FaRegHeart, FaHeart, FaRegComment, FaBookmark } from "react-icons/fa";
+
 import { RxLoop } from "react-icons/rx";
 import { LuSend } from "react-icons/lu";
 import { VscBookmark } from "react-icons/vsc";
 
-const PostActions = ({ likes, comments, reposts, shares }) => {
+const PostActions = ({
+  likes,
+  comments,
+  reposts,
+  shares,
+  isLiked,
+  isSaved,
+  isReposted,
+  onLike,
+  onComment,
+  onShare,
+  onSave,
+  onRepost,
+}) => {
   return (
-    <div className="flex items-center justify-between px-3 py-2">
+    <div className="flex items-center justify-between px-4 py-3">
       {/* Left */}
       <div className="flex items-center gap-5">
-        <button className="flex items-center gap-1.5 cursor-pointer">
-          <FaRegHeart className="text-[24px]" />
+        {/* Like */}
+        <button
+          onClick={onLike}
+          className="flex items-center gap-1.5 cursor-pointer"
+        >
+          {isLiked ? (
+            <FaHeart className="text-[22px] text-red-500" />
+          ) : (
+            <FaRegHeart className="text-[22px]" />
+          )}
+
           <span className="text-[13px] font-medium">{likes}</span>
         </button>
 
-        <button className="flex items-center gap-1.5 cursor-pointer">
+        {/* Comment */}
+        <button
+          onClick={onComment}
+          className="flex items-center gap-1.5 cursor-pointer"
+        >
           <FaRegComment className="text-[23px]" />
+
           <span className="text-[13px] font-medium">{comments}</span>
         </button>
 
-        <button className="flex items-center gap-1.5 cursor-pointer">
-          <RxLoop className="text-[25px]" />
-          <span className="text-[13px] font-medium">{reposts}</span>
+        {/* Repost */}
+        <button
+          onClick={onRepost}
+          className="flex items-center gap-1.5 cursor-pointer"
+        >
+          <RxLoop
+            className={`text-[25px] ${
+              isReposted ? "text-green-500" : "text-black"
+            }`}
+          />
+
+          <span
+            className={`text-[13px] font-medium ${
+              isReposted ? "text-green-500" : "text-black"
+            }`}
+          >
+            {reposts}
+          </span>
         </button>
 
-        <button className="flex items-center gap-1.5 cursor-pointer">
+        {/* Share */}
+        <button
+          onClick={onShare}
+          className="flex items-center gap-1.5 cursor-pointer"
+        >
           <LuSend className="text-[22px]" />
+
           <span className="text-[13px] font-medium">{shares}</span>
         </button>
       </div>
 
-      {/* Right */}
-      <button className="cursor-pointer">
-        <VscBookmark className="text-[22px]" />
+      {/* Save */}
+      <button onClick={onSave} className="cursor-pointer">
+        {isSaved ? (
+          <FaBookmark className="text-[22px]" />
+        ) : (
+          <VscBookmark className="text-[22px]" />
+        )}
       </button>
     </div>
   );

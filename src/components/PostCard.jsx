@@ -2,9 +2,12 @@ import PostHeader from "./PostHeader";
 import PostMedia from "./PostMedia";
 import PostActions from "./PostActions";
 import PostCaption from "./PostCaption";
-// import PostTime from "./PostTime";
+import CommentModal from "./CommentModal";
+
+import { useState } from "react";
 
 const PostCard = ({
+  id,
   username,
   verified,
   profile,
@@ -16,25 +19,56 @@ const PostCard = ({
   reposts,
   shares,
   caption,
-  // time,
+  isLiked,
+  isSaved,
+  isReposted,
+
+  onLike,
+  onComment,
+  onShare,
+  onSave,
+  onRepost,
+
+  commentsList = [],
 }) => {
+  const [showComments, setShowComments] = useState(false);
+
+  const handleCommentClick = () => {
+    setShowComments(true);
+  };
+
   return (
-    <div className="bg-white mb-5">
-      <PostHeader username={username} verified={verified} profile={profile} />
+    <>
+      <div>
+        <PostHeader username={username} verified={verified} profile={profile} />
 
-      <PostMedia image={image} video={video} isVideo={isVideo} />
+        <PostMedia image={image} video={video} isVideo={isVideo} />
 
-      <PostActions
-        likes={likes}
-        comments={comments}
-        reposts={reposts}
-        shares={shares}
+        <PostActions
+          likes={likes}
+          comments={comments}
+          reposts={reposts}
+          shares={shares}
+          isLiked={isLiked}
+          isSaved={isSaved}
+          isReposted={isReposted}
+          onLike={() => onLike(id)}
+          onComment={handleCommentClick}
+          onShare={() => onShare(id)}
+          onSave={() => onSave(id)}
+          onRepost={() => onRepost(id)}
+        />
+
+        <PostCaption username={username} caption={caption} />
+      </div>
+
+      <CommentModal
+        isOpen={showComments}
+        onClose={() => setShowComments(false)}
+        comments={commentsList}
+        onAddComment={(text) => onComment(id, text)}
       />
-
-      <PostCaption username={username} caption={caption} />
-
-      {/* <PostTime time={time} /> */}
-    </div>
+    </>
   );
 };
 
