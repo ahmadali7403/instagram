@@ -1,7 +1,7 @@
 import MessageUser from "./MessageUser";
 import { users } from "../data/data";
 
-const MessageList = () => {
+const MessageList = ({ search, onSelectUser }) => {
   const messages = users.slice(1, 8).map((user, index) => ({
     ...user,
     message: [
@@ -13,18 +13,31 @@ const MessageList = () => {
       "That's awesome 😍",
       "Good morning!",
     ][index],
+
     time: ["2m", "15m", "1h", "2h", "5h", "1d", "2d"][index],
   }));
 
+  const filteredMessages = messages.filter((user) =>
+    user.username.toLowerCase().includes(search.toLowerCase()),
+  );
+
   return (
     <div>
-      <div className="px-5 pb-2">
-        <h2 className="text-sm font-semibold text-[#262626]">Messages</h2>
-      </div>
-
-      {messages.map((user) => (
-        <MessageUser key={user.id} user={user} />
-      ))}
+      {filteredMessages.length > 0 ? (
+        filteredMessages.map((user) => (
+          <div
+            key={user.id}
+            onClick={() => onSelectUser(user)}
+            className="cursor-pointer"
+          >
+            <MessageUser user={user} />
+          </div>
+        ))
+      ) : (
+        <div className="text-center py-12">
+          <p className="text-sm text-[#737373]">No users found</p>
+        </div>
+      )}
     </div>
   );
 };
