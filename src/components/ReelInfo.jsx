@@ -5,9 +5,9 @@ const ReelInfo = ({ username, profile, verified, caption, audio }) => {
   const [isFollowing, setIsFollowing] = useState(false);
 
   return (
-    <div className="text-white w-full mb-2">
+    <div className="text-white w-full">
       {/* Username + Follow */}
-      <div className="flex items-center gap-3 mb-1">
+      <div className="flex items-center gap-3">
         <img
           src={profile}
           alt={username}

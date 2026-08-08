@@ -13,9 +13,12 @@ const ReelCard = ({ post }) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          video.play().catch(() => {});
+          video.play().catch((error) => {
+            console.log("Reel play error:", error);
+          });
         } else {
           video.pause();
+          video.currentTime = 0;
         }
       },
       {
@@ -25,7 +28,10 @@ const ReelCard = ({ post }) => {
 
     observer.observe(video);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      video.pause();
+    };
   }, []);
 
   const handleVideoClick = () => {
@@ -34,7 +40,9 @@ const ReelCard = ({ post }) => {
     if (!video) return;
 
     if (video.paused) {
-      video.play();
+      video.play().catch((error) => {
+        console.log("Reel play error:", error);
+      });
     } else {
       video.pause();
     }
@@ -42,19 +50,22 @@ const ReelCard = ({ post }) => {
 
   return (
     <section className="relative h-screen w-full snap-start overflow-hidden bg-black">
+      {/* Video */}
       <video
         ref={videoRef}
         src={post.video}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover"
         loop
         playsInline
         preload="metadata"
         onClick={handleVideoClick}
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+      {/* Dark Gradient */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-      <div className="absolute bottom-20 left-0 w-full px-4 z-20">
+      {/* Reel Info */}
+      <div className="absolute bottom-10 left-0 z-20 w-full px-4">
         <ReelInfo
           username={post.username}
           profile={post.profile}
@@ -64,7 +75,8 @@ const ReelCard = ({ post }) => {
         />
       </div>
 
-      <div className="absolute right-3 bottom-20 z-30">
+      {/* Reel Actions */}
+      <div className="absolute bottom-10 right-3 z-30">
         <ReelActions
           profile={post.profile}
           likes={post.likes}

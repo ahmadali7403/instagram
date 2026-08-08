@@ -1,18 +1,19 @@
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const PostMedia = ({ image, video, isVideo }) => {
   const videoRef = useRef(null);
 
   useEffect(() => {
-    if (!isVideo) return;
+    if (!isVideo || !videoRef.current) return;
+
+    const vid = videoRef.current;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        const vid = videoRef.current;
-        if (!vid) return;
-
         if (entry.isIntersecting) {
-          vid.play().catch(() => {});
+          vid.play().catch((error) => {
+            console.log("Video autoplay blocked:", error);
+          });
         } else {
           vid.pause();
           vid.currentTime = 0;
@@ -24,23 +25,23 @@ const PostMedia = ({ image, video, isVideo }) => {
       },
     );
 
-    observer.observe(videoRef.current);
+    observer.observe(vid);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      vid.pause();
+    };
   }, [isVideo]);
 
   const handleClick = () => {
-    if (!isVideo) return;
+    if (!isVideo || !videoRef.current) return;
 
     const vid = videoRef.current;
 
-    if (vid.muted) {
-      vid.muted = false;
-      return;
-    }
-
     if (vid.paused) {
-      vid.play();
+      vid.play().catch((error) => {
+        console.log("Video play failed:", error);
+      });
     } else {
       vid.pause();
     }
@@ -55,9 +56,7 @@ const PostMedia = ({ image, video, isVideo }) => {
         <video
           ref={videoRef}
           src={video}
-          className="w-full h-full object-cover"
-          autoPlay
-          muted
+          className="block h-full w-full object-cover object-center"
           loop
           playsInline
           preload="metadata"
@@ -66,9 +65,9 @@ const PostMedia = ({ image, video, isVideo }) => {
         <img
           src={image}
           alt="Post"
-          className="w-full h-full object-cover"
+          className="block h-full w-full object-cover object-center"
           loading="lazy"
-          draggable={false}
+          draggable="false"
         />
       )}
     </div>
